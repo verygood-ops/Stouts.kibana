@@ -3,6 +3,19 @@
 - name: kibana-configure | Setup kibana
   template: src=kibana.yml.j2 dest={{kibana_home}}/kibana.yml owner={{kibana_user}} group={{kibana_group}}
 
+- name: copy dashboard and importer
+  copy:
+    src={{item}}
+    dest=/opt/{{item}}
+  with_items:
+    - kibana-ossecwazuh-dashboards.json
+    - import_dashboards.py
+  when: kibana_ossec-wazuh_dashboards
+
+- name: import ossec-wazuh dashboards
+  shell: python /opt/import_dashboards.py {{kibana_elasticsearch_url}} < /opt/kibana-ossecwazuh-dashboards.json
+  when: kibana_ossec-wazuh_dashboards
+
 - name: kibana-configure | Setup service
   template: src=upstart.conf.j2 dest=/etc/init/kibana.conf
   notify: kibana restart
