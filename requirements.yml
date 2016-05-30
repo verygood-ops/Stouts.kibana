@@ -1,0 +1,4 @@
+---
+  - src: git+git@github.com:Stouts/Stouts.elasticsearch.git
+    name: elasticsearch
+    version: 073d3601325c505eabd98816b922b3ed9c6db4ca
