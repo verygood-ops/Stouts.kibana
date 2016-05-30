@@ -1,10 +1,10 @@
-Stouts.kibana
-==============
+# Stouts.kibana
 
-[![Build Status](http://img.shields.io/travis/Stouts/Stouts.kibana.svg?style=flat-square)](https://travis-ci.org/Stouts/Stouts.kibana)
-[![Galaxy](http://img.shields.io/badge/galaxy-Stouts.kibana-blue.svg?style=flat-square)](https://galaxy.ansible.com/list#/roles/1986)
+[![Circle CI](
+https://circleci.com/gh/verygood-ops/Stouts.kibana.svg
+)](https://circleci.com/gh/verygood-ops/Stouts.kibana)
 
-Ansible role which manage [Kibana](http://www.elasticsearch.org/overview/kibana/)
+Ansible role which manage [Kibana](http://www.elasticsearch.org/overview/kibana/) with [Wazuh](https://github.com/wazuh/ossec-wazuh) dashboards by default
 
 * Install and configure kibana server
 
@@ -92,6 +92,9 @@ kibana_bundled_plugin_ids:
  - plugins/table_vis/index
  - plugins/vis_types/index
  - plugins/visualize/index
+
+# install Wazuh-recommended dashboards by default
+kibana_ossec-wazuh_dashboards: true
 ```
 
 #### Usage

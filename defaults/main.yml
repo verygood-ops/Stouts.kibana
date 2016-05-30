@@ -74,4 +74,6 @@ kibana_bundled_plugin_ids:
  - plugins/vis_types/index
  - plugins/visualize/index
 
+kibana_ossec-wazuh_dashboards: true
+
 # vim:sw=2
