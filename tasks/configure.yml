@@ -15,6 +15,7 @@
 - name: import ossec-wazuh dashboards
   shell: python /opt/import_dashboards.py {{kibana_elasticsearch_url}} < /opt/kibana-ossecwazuh-dashboards.json
   when: kibana_ossec-wazuh_dashboards
+  changed_when: false
 
 - name: kibana-configure | Setup service
   template: src=upstart.conf.j2 dest=/etc/init/kibana.conf

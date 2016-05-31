@@ -1,0 +1,18 @@
+---
+
+- hosts: test_runners
+  become: yes
+  vars:
+    elasticsearch_network_bind_host: 0.0.0.0
+
+  roles:
+    - { role: Stouts.kibana }  
+
+  post_tasks:
+    - name: wait for kibana service at default port
+      wait_for: 
+        host=0.0.0.0
+        port=5601
+        state=started
+        delay=10
+        timeout=300

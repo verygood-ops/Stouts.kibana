@@ -1,6 +1,7 @@
 ---
 
-dependencies: []
+dependencies: 
+  - elasticsearch
 
 galaxy_info:
   author: klen
